@@ -8,6 +8,7 @@ import { Task } from 'src/app/domains/shared/components/model/task.model';
 export class TaskComponent{
   @Input() task: Task | undefined
   @Output() update = new EventEmitter<void>()
+  @Output() delete = new EventEmitter<string>()
   isEditing: boolean = false
 
   onChangeState(){
@@ -25,6 +26,9 @@ export class TaskComponent{
       this.update.emit()
     }
     this.isEditing = false
+  }
+  onDelete() {
+    this.delete.emit(this.task?.id)
   }
   getClass(): string{
     if(this.isEditing){
