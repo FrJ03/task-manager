@@ -30,9 +30,10 @@ export class HomeComponent implements OnInit{
     this.tasks = this.taskStorageService.getTasks()
   }
 
-  onDelete(){
-    this.taskStorageService.setTasks(this.tasks)
-    this.tasks = this.taskStorageService.getTasks()
+  onDelete(taskId: string){
+    this.tasks.splice(this.tasks.findIndex(task => task.id === taskId), 1)
+
+    this.onUpdate()
   }
 
   cleanCompletedTasks(){

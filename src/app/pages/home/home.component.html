@@ -2,7 +2,7 @@
   <app-header (addTask)="addTask($event)"></app-header>
   <div class="container todoapp-wrapper">
     <!-- This section should be hidden by default and shown when there are todos -->
-    <app-tasks-list [tasks]="getTasks()" (update)="onUpdate()" (delete)="onDelete()"></app-tasks-list>
+    <app-tasks-list [tasks]="getTasks()" (update)="onUpdate()" (delete)="onDelete($event)"></app-tasks-list>
     <!-- This footer should be hidden by default and shown when there are todos -->
    <app-tasks-footer [isVisible]="tasks.length > 0" [currentFilter]="currentFilter" [nCompletedTasks]="getCompletedTaks().length" [nPendingTasks]="getPendingTaks().length" (cleanCompletedTasks)="cleanCompletedTasks()"></app-tasks-footer>
   </div>
